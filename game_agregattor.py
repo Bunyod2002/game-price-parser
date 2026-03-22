@@ -6,6 +6,9 @@ class Agregattor:
     def get_prices(self, game_name):
         results = []
         for parser in self.parsers:
-            result = parser.search_game(game_name)
+            result = parser.game_search(game_name)
             results.append(result)
         return results
+    
+    def sort_prices(self):
+        pass
