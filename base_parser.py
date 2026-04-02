@@ -1,6 +1,6 @@
-from abs import ABS, abstractmethod
+from abs import ABC, abstractmethod
 
-class Base_Parser(ABS):
+class Base_Parser(ABC):
     @abstractmethod
     def game_search(self, game_name):
         """Search game by its name from site and return GamePrice object"""
