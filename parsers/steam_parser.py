@@ -1,9 +1,8 @@
-#from base_parser import Base_Parser
-#from game_price import Game_Price
 import requests as req
 from bs4 import BeautifulSoup
+from base_parser import Base_Parser
 
-class Steam_Parser:
+class Steam_Parser(Base_Parser):
     def game_search(self, game_name):
         pass
     
