@@ -1,7 +1,6 @@
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from base_parser import Base_Parser
 from game_price import Game_Price
 import requests as req
