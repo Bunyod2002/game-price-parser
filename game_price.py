@@ -16,4 +16,5 @@ class Game_Price:
             "type": self.type,
             "url": self.url
         }
-    
+    def __repr__(self):
+            return f"Game_Price(name={self.game_name}, site_name={self.site_name}, price={self.price}, currency={self.currency}, type={self.type}, url={self.url})"
