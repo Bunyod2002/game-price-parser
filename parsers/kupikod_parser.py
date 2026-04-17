@@ -3,10 +3,10 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))#временный костыль для импорта из родительской папки
 from base_parser import Base_Parser
 from game_price import Game_Price
-import requests as req
-from bs4 import BeautifulSoup
+import requests as req#для получения данных с купикода
+from bs4 import BeautifulSoup#для парсинга данных с ggsell
 
-class Kupikod_Parser(Base_Parser):
+'''class Kupikod_Parser(Base_Parser):
     def __init__(self, game_name):# при инициализации класса сразу выполняем поиск игры на сайте и сохраняем ее название и url для дальнейшего использования
         params = {"q": game_name}
         url = "https://search-v2.kupikod.com/search?"
@@ -14,7 +14,7 @@ class Kupikod_Parser(Base_Parser):
         response = req.get(url, params=params)
         res = response.json()
         
-        self.name_game = res['items'][0]['name']
+        self.name_game = res['items'][0]['name']#получаем название игры из ответа
         self.url = url
     
     def game_search(self, site_name=None, price=None, currency=None, type=None):
@@ -31,7 +31,7 @@ class GGsel_Parser(Base_Parser):
     def __init__(self):
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-        }
+        }#для получения данных с ggsell необходимо указать заголовки, иначе сайт может не отдать данные
     
     def get_ggsel_title(self, query):
         url = f"https://ggsel.net/catalog?search={query}"
@@ -49,17 +49,17 @@ class GGsel_Parser(Base_Parser):
         return title_element.text.strip()
 
     def game_search(self, game_name, site_name=None, price=None, currency=None, type=None, url=None):
-        return self.get_ggsel_title(game_name)
+        return self.get_ggsel_title(game_name)'''
 
 
-# пример
+'''# пример
 if __name__ == "__main__":
     ggsel_parser = GGsel_Parser()
     
-    raw_title = ggsel_parser.game_search("витчер")  # ← теперь используем game_search
+    raw_title = ggsel_parser.game_search("джедай")  
     print(f"Найдено на GGsel: {raw_title}")# получаем название игры с GGsel
     
     kupikod_parser = Kupikod_Parser(raw_title)
     game_data = kupikod_parser.game_search(site_name="GGsel")
     
-    print(f"Результат: {game_data}")
+    print(f"Результат: {game_data}")'''
